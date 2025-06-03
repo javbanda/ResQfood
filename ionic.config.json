@@ -1,0 +1,7 @@
+{
+  "name": "ResQFood",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
