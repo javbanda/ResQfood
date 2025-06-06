@@ -1,27 +1,62 @@
-#container {
+.home-container {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-top: 2rem;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.titulo-con-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px; // Espacio entre imagen y texto
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+.logo-pequeno {
+  width: 80px;
+  height: 80px;
+}
 
-  color: #8c8c8c;
-
+.titulo {
+  font-size: 1.6rem;
+  color: #1e5221;
   margin: 0;
 }
 
-#container a {
-  text-decoration: none;
+.subtitulo {
+  font-size: 1.3rem;
+  color: #18411a;
+  margin-bottom: 1.5rem;
+}
+
+.btn-catalogo {    //Boton catalogo (explorar productos)
+  --background: #799f2a;
+  --background-hover: #799f2a;
+  --color: #000000; 
+  font-weight: bold;
+}
+
+.btn-outline {
+  --color: #799f2a; //Boton registro outline
+  --border-color: #799f2a;
+  font-weight: bold;
+}
+
+.login-link {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+
+  a {
+    color: #c9cf43;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+}
+
+.tienda-card img {
+  width: 100%;
+  height: 100px; 
+  object-fit: cover;
+  border-radius: 8px;
 }

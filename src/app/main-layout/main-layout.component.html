@@ -1,0 +1,46 @@
+<ion-app>
+  <!-- Menú lateral -->
+  <ion-menu contentId="main-content" side="start" menuId="first" type="overlay" swipeGesture="true">
+    <ion-header>
+      <ion-toolbar color="light">
+        <ion-title>🍏Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item routerLink="/home" routerDirection="root" detail="false">
+          <ion-icon slot="start" name="home-outline"></ion-icon>
+          Home
+        </ion-item>
+        <ion-item routerLink="/catalogo" routerDirection="root" detail="false">
+          <ion-icon slot="start" name="basket-outline"></ion-icon>
+          Catálogo
+        </ion-item>
+        <ion-item routerLink="/ofertas" routerDirection="root" detail="false">
+          <ion-icon slot="start" name="pricetag-outline"></ion-icon>
+          Ofertas
+        </ion-item>
+        <ion-item routerLink="/perfil" routerDirection="root" detail="false">
+          <ion-icon slot="start" name="person-outline"></ion-icon>
+          Perfil
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- Contenido principal -->
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar color="light">
+        <ion-buttons slot="start">
+          <ion-menu-button autoHide="false"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>🍏ResQFood</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <router-outlet></router-outlet> <!-- Aquí se cargan las páginas hijas -->
+    </ion-content>
+  </div>
+</ion-app>

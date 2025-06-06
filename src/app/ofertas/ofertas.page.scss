@@ -1,0 +1,26 @@
+.oferta-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+.oferta-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.precio {
+  color: #799f2a;
+  font-weight: bold;
+}
+
+ion-button {
+  --background: #799f2a;
+  --background-hover: #688b24;
+  --background-activated: #5c7c20;
+  --color: #ffffff;
+  border-radius: 10px;
+}

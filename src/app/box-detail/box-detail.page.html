@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Detalles del Box</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card *ngIf="oferta">
+    <img [src]="oferta.imagen" alt="Box" />
+    <ion-card-header>
+      <ion-card-title>{{ oferta.nombre }}</ion-card-title>
+      <ion-card-subtitle>{{ oferta.local }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ oferta.descripcion }}</p>
+      <p><strong>Precio:</strong> ${{ oferta.precio }}</p>
+      <p><strong>Vence:</strong> {{ oferta.fechaVencimiento | date:'fullDate' }}</p>
+      <ion-button expand="block" color="success">
+        Agregar al Carrito
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

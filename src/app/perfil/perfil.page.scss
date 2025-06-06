@@ -1,0 +1,97 @@
+/* Contenedor principal */
+.perfil-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(46, 61, 23, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Título */
+.perfil-container h2 {
+  color: #2e3d17;
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+/* Ion Card */
+ion-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(46, 61, 23, 0.1);
+  margin-bottom: 30px;
+}
+
+/* Título dentro de la card */
+ion-card-title {
+  color: #415822;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* Texto contenido en la card */
+ion-card-content p {
+  color: #4a4a4a;
+  font-size: 1.0rem;
+  margin: 8px 0;
+}
+
+/* Botón Editar Perfil personalizado */
+.editar-btn {
+  --background: #799f2a !important;
+  --background-activated: #6a8a22 !important;
+  --background-hover: #8ab83c !important;
+  --color: #ffffff !important;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(121, 159, 42, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 10px;
+}
+
+.editar-btn:hover {
+  --background: #8ab83c !important;
+  box-shadow: 0 6px 10px rgba(121, 159, 42, 0.7);
+}
+
+.editar-btn:active {
+  --background: #6a8a22 !important;
+  box-shadow: none;
+}
+
+/* Tamaño más grande para etiquetas y campos de entrada */
+ion-label {
+  font-size: 1.9rem;
+  color: #2e3d17;
+}
+
+ion-input {
+  font-size: 1.0rem;
+  color: #2e3d17;
+}
+
+
+
+/* Ajustes responsivos */
+@media (max-width: 600px) {
+  .perfil-container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .perfil-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  ion-card-content p {
+    font-size: 1.8rem;
+  }
+  
+  .editar-btn {
+    font-size: 1rem;
+  }
+}

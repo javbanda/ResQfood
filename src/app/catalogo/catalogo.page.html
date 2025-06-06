@@ -1,0 +1,90 @@
+<ion-content class="ion-padding" style="--background: #ffffff;">
+  <div class="catalogo-container">
+
+    <!-- Barra de búsqueda -->
+    <ion-searchbar placeholder="Buscar alimentos, tiendas o packs" animated></ion-searchbar>
+
+    <!-- Sección de Tiendas -->
+    <h2 class="seccion-titulo">Tiendas</h2>
+    <div class="tiendas-grid">
+
+      <ion-card class="tienda-card" routerLink="/tiendas">
+        <img src="assets/img/panaderia.jpg" alt="Panadería Delicias" />
+        <ion-card-header>
+          <ion-card-title>Panadería Delicias</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="tienda-card" routerLink="/tiendas">
+        <img src="assets/img/fruteria.jpg" alt="Frutería Natural" />
+        <ion-card-header>
+          <ion-card-title>Frutería Natural</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="tienda-card" routerLink="/tiendas">
+        <img src="assets/img/supermercado.jpg" alt="Supermercado Eco" />
+        <ion-card-header>
+          <ion-card-title>Supermercado Eco</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="tienda-card" routerLink="/tiendas">
+        <img src="assets/img/carniceria.jpg" alt="Carnicería La Vaquita" />
+        <ion-card-header>
+          <ion-card-title>Carnicería La Vaquita</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="tienda-card" routerLink="/tiendas">
+        <img src="assets/img/waffles.jpg" alt="Snack Waffles" />
+        <ion-card-header>
+          <ion-card-title>Snack Waffles</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="tienda-card" routerLink="/tiendas">
+        <img src="assets/img/verduleria.jpg" alt="Verdulería Orgánica" />
+        <ion-card-header>
+          <ion-card-title>Verdulería Organic</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+    </div>
+
+    <!-- Sección de Packs o Canastas -->
+    <h2 class="seccion-titulo">Packs de Comida</h2>
+    <div class="packs-grid">
+
+      <ion-card class="pack-card" (click)="verPack('Pack Hamburguesa')">
+        <img src="assets/img/burger.jpg" alt="Pack Hamburguesa" />
+        <ion-card-header>
+          <ion-card-title>Pack Hamburguesa</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="pack-card" (click)="verPack('Pack Vegetales Surtidos')">
+        <img src="assets/img/vegetales.jpg" alt="Pack Vegetales Surtidos" />
+        <ion-card-header>
+          <ion-card-title>Pack Vegetales Surtidos</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="pack-card" (click)="verPack('Pack Antojitos')">
+        <img src="assets/img/antojitos.jpg" alt="Pack Antojitos" />
+        <ion-card-header>
+          <ion-card-title>Pack Antojitos</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="pack-card" (click)="verPack('Pack Varios')">
+        <img src="assets/img/varios.jpg" alt="Pack Varios" />
+        <ion-card-header>
+          <ion-card-title>Pack Varios</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+    </div>
+
+  </div>
+</ion-content>

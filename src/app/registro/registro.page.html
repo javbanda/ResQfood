@@ -1,0 +1,91 @@
+<ion-header translucent="true">
+  <ion-toolbar color="light">
+    <ion-title>
+      🍏 ResQFood 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="--background: #ffffff;">
+  <div class="registro-container">
+
+    <img src="assets/img/logo_1.png" alt="Logo ResQFood" class="logo-registro" />
+
+    <h2 class="registro-titulo">Crea tu cuenta</h2>
+
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+
+      <ion-item lines="none">
+        <ion-label position="stacked" class="campo-label">Nombre completo</ion-label>
+        <ion-input
+          type="text"
+          fill="outline"
+          formControlName="nombre"
+          class="campo-input"
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="nombre?.invalid && nombre?.touched">
+        <p *ngIf="nombre?.errors?.['required']">El nombre es obligatorio.</p>
+      </ion-text>
+
+      <ion-item lines="none">
+        <ion-label position="stacked" class="campo-label">Correo electrónico</ion-label>
+        <ion-input
+          type="email"
+          fill="outline"
+          formControlName="email"
+          class="campo-input"
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="email?.invalid && email?.touched">
+        <p *ngIf="email?.errors?.['required']">El correo es obligatorio.</p>
+        <p *ngIf="email?.errors?.['email']">Formato de correo no válido.</p>
+      </ion-text>
+
+      <ion-item lines="none">
+        <ion-label position="stacked" class="campo-label">Contraseña</ion-label>
+        <ion-input
+          type="password"
+          fill="outline"
+          formControlName="password"
+          class="campo-input"
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="password?.invalid && password?.touched">
+        <p *ngIf="password?.errors?.['required']">La contraseña es obligatoria.</p>
+        <p *ngIf="password?.errors?.['minlength']">Debe tener al menos 6 caracteres.</p>
+        <p *ngIf="password?.errors?.['maxlength']">Máximo 10 caracteres.</p>
+      </ion-text>
+
+      <ion-item lines="none">
+        <ion-label position="stacked" class="campo-label">Confirmar contraseña</ion-label>
+        <ion-input
+          type="password"
+          fill="outline"
+          formControlName="confirmarPassword"
+          class="campo-input"
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="registroForm.errors?.['noMatch'] && confirmarPassword?.touched">
+        <p>Las contraseñas no coinciden.</p>
+      </ion-text>
+
+      <ion-button
+        expand="block"
+        type="submit"
+        class="btn-registrar"
+        [disabled]="registroForm.invalid"
+      >
+        Registrarse
+      </ion-button>
+
+    </form>
+
+    <div class="login-link">
+      <p>
+        ¿Ya tienes cuenta?
+        <a routerLink="/login">Inicia sesión aquí</a>
+      </p>
+    </div>
+  </div>
+</ion-content>

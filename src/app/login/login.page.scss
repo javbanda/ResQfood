@@ -1,0 +1,51 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding-top: 24px;
+}
+
+.logo-login {
+  width: 100px;
+  margin-bottom: 12px;
+}
+
+.login-titulo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 16px;
+}
+
+.campo-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.campo-input {
+  font-size: 18px;
+}
+
+.btn-login {
+  margin-top: 20px;
+  --background: #799f2a;
+  --color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+
+.registro-link {
+  margin-top: 16px;
+  font-size: 17px;
+  text-align: center;
+}
+
+.registro-link a {
+  color: #2e7d32;
+  font-weight: 500;
+  text-decoration: none;
+}

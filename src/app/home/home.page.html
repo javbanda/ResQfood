@@ -1,20 +1,45 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="ion-padding" [fullscreen]="true" style="--background: #ffffff;">
+  <div class="home-container">
+    <div class="titulo-con-logo">
+      <img src="assets/img/logo_1.png" class="logo-pequeno" alt="Logo ResQFood" />
+      <h1 class="titulo">Bienvenido a ResQFood</h1>
+    </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <p class="subtitulo">¡Ayudemos al planeta rescatando comida deliciosa!</p>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-searchbar placeholder="Buscar alimentos o tiendas" animated></ion-searchbar>
+
+    <h2 class="tiendas-titulo">Tiendas disponibles</h2>
+
+    <div class="tiendas-grid">
+      <ion-card class="tienda-card" routerLink="/catalogo">
+        <img src="assets/img/panaderia.jpg" alt="Panaderia" />
+        <ion-card-header>
+          <ion-card-title>Panadería Delicias</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="tienda-card" routerLink="/catalogo">
+        <img src="assets/img/fruteria.jpg" alt="fruteria" />
+        <ion-card-header>
+          <ion-card-title>Frutería Natural</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <ion-card class="tienda-card" routerLink="/catalogo">
+        <img src="assets/img/supermercado.jpg" alt="supermercado" />
+        <ion-card-header>
+          <ion-card-title>Supermercado Eco</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+
+    <ion-button expand="block" class="btn-catalogo" routerLink="/catalogo">
+      Explorar Todo
+    </ion-button>
+
+    <ion-button expand="block" class="btn-catalogo" routerLink="/ofertas">
+      Ver Ofertas
+    </ion-button>
   </div>
 </ion-content>

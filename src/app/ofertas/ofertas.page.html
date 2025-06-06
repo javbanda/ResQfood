@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar style="--background: #799f2a;">
+    <ion-title style="color: white;">Ofertas de Último Minuto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="--background: #f5f5f5">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" *ngFor="let oferta of ofertas; let i = index">
+        <ion-card class="oferta-card">
+          <img [src]="oferta.imagen" alt="Producto" class="oferta-img" />
+          <ion-card-header>
+            <ion-card-title>{{ oferta.nombre }}</ion-card-title>
+            <ion-card-subtitle>{{ oferta.local }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p><strong>Precio:</strong> <span class="precio">${{ oferta.precio }}</span></p>
+            <p><strong>Vence:</strong> {{ oferta.fechaVencimiento | date:'shortDate' }}</p>
+            <ion-button
+              expand="block"
+              size="small"
+              [routerLink]="['/box-detail', i]"
+              style="--background: #799f2a; --color: white; --background-hover: #6b8b26; --background-activated: #5c7c20;">
+              Ver Detalles
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

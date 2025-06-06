@@ -1,0 +1,29 @@
+<ion-content class="ion-padding" style="--background: #ffffff;">
+  <div class="perfil-container">
+    <h2 style="color: #2e3d17;">Perfil de Usuario</h2>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Información Personal</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input [(ngModel)]="nombre" [readonly]="!editando"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input [(ngModel)]="email" [readonly]="!editando" type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Teléfono</ion-label>
+          <ion-input [(ngModel)]="telefono" [readonly]="!editando" type="tel"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="block" class="editar-btn" (click)="toggleEditarPerfil()">
+      {{ editando ? 'Guardar Cambios' : 'Editar Perfil' }}
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header translucent="true">
+  <ion-toolbar color="light">
+    <ion-title>🍏 ResQFood</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="--background: #ffffff;">
+  <div class="login-container">
+
+    <img src="assets/img/logo_1.png" alt="Logo ResQFood" class="logo-login" />
+
+    <h2 class="login-titulo">Inicia Sesión</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <ion-item lines="none">
+        <ion-label position="stacked" class="campo-label">Correo electrónico</ion-label>
+        <ion-input type="email" fill="outline" formControlName="email" class="campo-input"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="email?.invalid && email?.touched">
+        <p *ngIf="email?.errors?.['required']">El correo es obligatorio.</p>
+        <p *ngIf="email?.errors?.['email']">Formato de correo no válido.</p>
+      </ion-text>
+
+      <ion-item lines="none">
+        <ion-label position="stacked" class="campo-label">Contraseña</ion-label>
+        <ion-input type="password" fill="outline" formControlName="password" class="campo-input"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="password?.invalid && password?.touched">
+        <p *ngIf="password?.errors?.['required']">La contraseña es obligatoria.</p>
+        <p *ngIf="password?.errors?.['minlength']">Debe tener al menos 6 caracteres.</p>
+        <p *ngIf="password?.errors?.['maxlength']">Máximo 10 caracteres.</p>
+      </ion-text>
+
+      <ion-button expand="block" type="submit" class="btn-login" [disabled]="loginForm.invalid">
+        Iniciar Sesión
+      </ion-button>
+
+    </form>
+
+    <div class="registro-link">
+  <p>¿No tienes cuenta? 
+    <a routerLink="/registro">Regístrate aquí</a>
+  </p>
+</div>
+
+
+  </div>
+</ion-content>
