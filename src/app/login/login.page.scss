@@ -49,3 +49,27 @@
   font-weight: 500;
   text-decoration: none;
 }
+
+.logo-login {
+  width: 150px;
+  margin: 20px auto;
+  display: block;
+  animation: bounceIn 1.2s ease-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

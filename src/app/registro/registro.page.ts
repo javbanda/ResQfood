@@ -22,12 +22,11 @@ export class RegistroPage {
     this.registroForm = this.fb.group({
       nombre: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
+      password: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(8)]],
       confirmarPassword: ['', [Validators.required]]
     }, { validators: this.passwordsMatch });
   }
 
-  // Validador personalizado
   passwordsMatch(formGroup: FormGroup) {
     const pass = formGroup.get('password')?.value;
     const confirm = formGroup.get('confirmarPassword')?.value;
@@ -67,8 +66,10 @@ export class RegistroPage {
         return;
       }
 
-      // Guardar en localStorage y navegar al home
+      // Guardar el usuario en localStorage
       localStorage.setItem('usuario', JSON.stringify(nuevoUsuario));
+
+      // Navegar a Home y pasar el nombre para mostrar mensaje personalizado
       this.router.navigate(['/home'], { state: { nombreUsuario: nuevoUsuario.nombre } });
     } else {
       this.registroForm.markAllAsTouched();

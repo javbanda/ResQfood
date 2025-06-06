@@ -1,8 +1,8 @@
 <ion-content class="ion-padding" [fullscreen]="true" style="--background: #ffffff;">
   <div class="home-container">
     <div class="titulo-con-logo">
-      <img src="assets/img/logo_1.png" class="logo-pequeno" alt="Logo ResQFood" />
-      <h1 class="titulo">Bienvenido a ResQFood</h1>
+      <img src="assets/img/logo_1.png" class="logo-login" alt="Logo ResQFood" />
+      <h1 class="titulo">¡Bienvenido, {{ nombreUsuario }}!</h1>
     </div>
 
     <p class="subtitulo">¡Ayudemos al planeta rescatando comida deliciosa!</p>
@@ -12,34 +12,41 @@
     <h2 class="tiendas-titulo">Tiendas disponibles</h2>
 
     <div class="tiendas-grid">
-      <ion-card class="tienda-card" routerLink="/catalogo">
-        <img src="assets/img/panaderia.jpg" alt="Panaderia" />
-        <ion-card-header>
-          <ion-card-title>Panadería Delicias</ion-card-title>
-        </ion-card-header>
-      </ion-card>
+      <a routerLink="/tabs/catalogo" style="text-decoration: none; color: inherit;">
+        <ion-card class="tienda-card">
+          <img src="assets/img/panaderia.jpg" alt="Panaderia" />
+          <ion-card-header>
+            <ion-card-title>Panadería Delicias</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </a>
 
-      <ion-card class="tienda-card" routerLink="/catalogo">
-        <img src="assets/img/fruteria.jpg" alt="fruteria" />
-        <ion-card-header>
-          <ion-card-title>Frutería Natural</ion-card-title>
-        </ion-card-header>
-      </ion-card>
+      <a routerLink="/tabs/catalogo" style="text-decoration: none; color: inherit;">
+        <ion-card class="tienda-card">
+          <img src="assets/img/fruteria.jpg" alt="Frutería" />
+          <ion-card-header>
+            <ion-card-title>Frutería Natural</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </a>
 
-      <ion-card class="tienda-card" routerLink="/catalogo">
-        <img src="assets/img/supermercado.jpg" alt="supermercado" />
-        <ion-card-header>
-          <ion-card-title>Supermercado Eco</ion-card-title>
-        </ion-card-header>
-      </ion-card>
+      <a routerLink="/tabs/catalogo" style="text-decoration: none; color: inherit;">
+        <ion-card class="tienda-card">
+          <img src="assets/img/supermercado.jpg" alt="Supermercado" />
+          <ion-card-header>
+            <ion-card-title>Supermercado Eco</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </a>
     </div>
 
-    <ion-button expand="block" class="btn-catalogo" routerLink="/catalogo">
+    <ion-button expand="block" class="btn-catalogo" routerLink="/tabs/catalogo">
       Explorar Todo
     </ion-button>
 
-    <ion-button expand="block" class="btn-catalogo" routerLink="/ofertas">
+    <ion-button expand="block" class="btn-catalogo" routerLink="/tabs/ofertas">
       Ver Ofertas
     </ion-button>
   </div>
 </ion-content>
+

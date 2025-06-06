@@ -12,7 +12,7 @@ export class OfertasPage {
     {
       nombre: 'Box Panadería',
       local: 'Panadería Delicias',
-      precio: '3.990',
+      precio: '8.990',
       fechaVencimiento: new Date('2025-06-10'),
       imagen: 'assets/img/box_1.jpg',
       descripcion: 'Deliciosos productos de panadería con descuento por vencimiento cercano.'

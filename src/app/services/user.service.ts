@@ -6,7 +6,6 @@ export interface Usuario {
   telefono?: string; 
 }
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,5 +19,10 @@ export class UserService {
   getUsuario(): Usuario | null {
     return this.usuarioActual;
   }
-}
 
+  cerrarSesion() {
+    // Solo borra el usuario actual, NO el usuario registrado guardado en localStorage
+    this.usuarioActual = null;
+    
+  }
+}

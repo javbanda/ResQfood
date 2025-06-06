@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { UserService, Usuario } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +22,7 @@ export class LoginPage {
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
+      password: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(8)]],
     });
   }
 
@@ -53,13 +53,17 @@ export class LoginPage {
     if (userData.email === email && userData.password === password) {
       console.log('Login exitoso');
 
-      // Guardar los datos en el servicio
-      this.userService.setUsuario({
+      const usuario: Usuario = {
         nombre: userData.nombre,
-        email: userData.email
-      });
+        email: userData.email,
+        telefono: userData.telefono
+      };
 
-      this.router.navigate(['/home']);
+      this.userService.setUsuario(usuario);
+
+    
+
+      this.router.navigate(['/tabs/home']);
     } else {
       alert('Correo o contraseña incorrectos');
     }

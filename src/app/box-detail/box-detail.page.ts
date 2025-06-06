@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,14 +7,22 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./box-detail.page.scss'],
   standalone: false,
 })
-export class BoxDetailPage {
+export class BoxDetailPage implements OnInit {
   oferta: any;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
     this.route.queryParams.subscribe(params => {
       if (params['box']) {
-        this.oferta = JSON.parse(params['box']);
+        try {
+          this.oferta = JSON.parse(params['box']);
+        } catch (e) {
+          console.error('Error al parsear la oferta:', e);
+          this.oferta = null;
+        }
       }
     });
   }
 }
+

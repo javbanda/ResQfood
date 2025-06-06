@@ -1,23 +1,46 @@
 <ion-header>
-  <ion-toolbar color="success">
-    <ion-title>Detalles del Box</ion-title>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <!-- El default back button navega hacia atrás -->
+      <ion-back-button defaultHref="/tabs/ofertas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle Box</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card *ngIf="oferta">
-    <img [src]="oferta.imagen" alt="Box" />
+  <ion-card style="border: 2px solid #799f2a; border-radius: 12px;">
     <ion-card-header>
-      <ion-card-title>{{ oferta.nombre }}</ion-card-title>
-      <ion-card-subtitle>{{ oferta.local }}</ion-card-subtitle>
+      <ion-card-title>Box Panadería - Detalles</ion-card-title>
+      <img 
+        src="assets/img/panes.jpg" 
+        alt="Panadería Delicias" 
+        style="width: 100%; height: auto; border-radius: 12px; margin: 8px 0;" 
+      />
+      <ion-card-subtitle>Fecha de vencimiento: <strong>06/06/2025</strong></ion-card-subtitle>
     </ion-card-header>
+
     <ion-card-content>
-      <p>{{ oferta.descripcion }}</p>
-      <p><strong>Precio:</strong> ${{ oferta.precio }}</p>
-      <p><strong>Vence:</strong> {{ oferta.fechaVencimiento | date:'fullDate' }}</p>
-      <ion-button expand="block" color="success">
-        Agregar al Carrito
-      </ion-button>
+      <p><strong>Local:</strong> Panadería Delicias</p>
+      <p><strong>Dirección:</strong> Avenida Angamos #0492, Providencia</p>
+      <p><strong>Valor:</strong> $8.990</p>
+
+      <ion-list>
+        <ion-list-header>
+          <ion-label>Productos incluidos:</ion-label>
+        </ion-list-header>
+        <ion-item>7 Mini Croissant</ion-item>
+        <ion-item>6 Mini Roll Pasas</ion-item>
+        <ion-item>6 Forks</ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
+
+  <ion-button 
+    expand="block" 
+    fill="outline" 
+    style="--border-color: #799f2a; --color: #799f2a; margin-top: 20px;"
+  >
+    Añadir al carrito
+  </ion-button>
 </ion-content>
