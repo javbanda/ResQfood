@@ -1,6 +1,6 @@
 # ResQfood
 
-<p>FreshBite es una aplicación móvil desarrollada con <strong>Ionic Angular</strong> que conecta a consumidores con locales que venden alimentos próximos a vencer. El objetivo es reducir las mermas en los comercios y ofrecer productos a precios accesibles.</p>
+<p>ResQfood es una aplicación móvil desarrollada con <strong>Ionic Angular</strong> que conecta a consumidores con locales que venden alimentos próximos a vencer. El objetivo es reducir las mermas en los comercios y ofrecer productos a precios accesibles.</p>
 
 <h2>Descripción</h2>
 <p>La app permite a los usuarios:</p>
