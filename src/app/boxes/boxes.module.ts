@@ -15,6 +15,6 @@ import { BoxesPage } from './boxes.page';
     IonicModule,
     BoxesPageRoutingModule
   ],
-  declarations: [BoxesPage]
+  
 })
 export class BoxesPageModule {}

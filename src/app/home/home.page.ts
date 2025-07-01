@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
-import { UserService, Usuario } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -15,22 +13,35 @@ import { UserService, Usuario } from '../services/user.service';
 export class HomePage implements OnInit {
   nombreUsuario: string = 'Usuario';
 
-  constructor(private userService: UserService) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
-    // Primero intentar obtener usuario desde servicio
-    const usuario: Usuario | null = this.userService.getUsuario();
+    // Intentar obtener usuario desde localStorage con clave 'usuarioActual'
+    const usuarioString = localStorage.getItem('usuarioActual');
+    let usuario = null;
+    if (usuarioString) {
+      try {
+        usuario = JSON.parse(usuarioString);
+      } catch {
+        usuario = null;
+      }
+    }
 
     if (usuario && usuario.nombre) {
       this.nombreUsuario = usuario.nombre;
-      // Guardar en sessionStorage para mantener persistencia en recargas
       sessionStorage.setItem('nombreUsuario', this.nombreUsuario);
     } else {
-      // Si no hay usuario en servicio, buscar en sessionStorage
+      // Si no hay usuario en localStorage, buscar en sessionStorage
       const nombreGuardado = sessionStorage.getItem('nombreUsuario');
       if (nombreGuardado) {
         this.nombreUsuario = nombreGuardado;
       }
     }
+  }
+
+  cerrarSesion() {
+    localStorage.removeItem('usuarioActual');
+    sessionStorage.removeItem('nombreUsuario');
+    this.router.navigate(['/login']);
   }
 }

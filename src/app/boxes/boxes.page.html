@@ -8,58 +8,30 @@
     </ion-header>
 
     <!-- Barra de búsqueda -->
-    <ion-searchbar placeholder="Buscar boxes" animated></ion-searchbar>
+    <ion-searchbar
+      placeholder="Buscar boxes"
+      animated
+      (ionInput)="buscar($event)"
+      debounce="300"
+    ></ion-searchbar>
 
-    <!-- Lista de boxes -->
+    <!-- Lista de boxes dinámica -->
     <div class="boxes-grid">
-      <ion-card class="box-card">
-        <img src="assets/img/box_hamburguesa.jpg" alt="Box Hamburguesa" />
+      <ion-card *ngFor="let box of boxesFiltrados" class="oferta-card">
+        <img
+          [src]="box.imagen"
+          [alt]="box.titulo"
+          style="width: 100%; height: 130px; object-fit: cover; border-radius: 16px 16px 0 0;"
+        />
         <ion-card-header>
-          <ion-card-title>Box Hamburguesa</ion-card-title>
-          <ion-card-subtitle>Restaurante: Panadería Delicias</ion-card-subtitle>
+          <ion-card-title>{{ box.titulo }}</ion-card-title>
+          <ion-card-subtitle>Restaurante: {{ box.restaurante }}</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-          <p><strong>Precio:</strong> $8.99</p>
-          <p><strong>Fecha de vencimiento:</strong> 2025-06-10</p>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card class="box-card">
-        <img src="assets/img/box_vegetales.jpg" alt="Box Vegetales" />
-        <ion-card-header>
-          <ion-card-title>Box Vegetales Surtidos</ion-card-title>
-          <ion-card-subtitle>Restaurante: Verdulería Orgánica</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <p><strong>Precio:</strong> $12.50</p>
-          <p><strong>Fecha de vencimiento:</strong> 2025-06-08</p>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card class="box-card">
-        <img src="assets/img/box_antojitos.jpg" alt="Box Antojitos" />
-        <ion-card-header>
-          <ion-card-title>Box Antojitos</ion-card-title>
-          <ion-card-subtitle>Restaurante: Snack Waffles</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <p><strong>Precio:</strong> $7.00</p>
-          <p><strong>Fecha de vencimiento:</strong> 2025-06-11</p>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card class="box-card">
-        <img src="assets/img/box_varios.jpg" alt="Box Varios" />
-        <ion-card-header>
-          <ion-card-title>Box Varios</ion-card-title>
-          <ion-card-subtitle>Restaurante: Supermercado Eco</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <p><strong>Precio:</strong> $15.00</p>
-          <p><strong>Fecha de vencimiento:</strong> 2025-06-09</p>
+          <p><strong>Precio:</strong> ${{ box.precio | number }}</p>
+          <p><strong>Fecha de vencimiento:</strong> {{ box.fechaVencimiento }}</p>
         </ion-card-content>
       </ion-card>
     </div>
-
   </div>
 </ion-content>

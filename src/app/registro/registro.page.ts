@@ -52,24 +52,23 @@ export class RegistroPage {
   async onSubmit() {
     if (this.registroForm.valid) {
       const nuevoUsuario = {
-        nombre: this.registroForm.value.nombre,
-        email: this.registroForm.value.email,
-        password: this.registroForm.value.password
+        nombre: this.registroForm.value.nombre.trim(),
+        email: this.registroForm.value.email.trim(),
+        password: this.registroForm.value.password.trim()
       };
 
-      // Verificar si ya existe ese email
-      const usuarioExistenteStr = localStorage.getItem('usuario');
-      const usuarioExistente = usuarioExistenteStr ? JSON.parse(usuarioExistenteStr) : null;
+      const usuariosStr = localStorage.getItem('usuarios');
+      const usuarios = usuariosStr ? JSON.parse(usuariosStr) : [];
 
-      if (usuarioExistente && usuarioExistente.email === nuevoUsuario.email) {
+      const usuarioExistente = usuarios.find((u: any) => u.email === nuevoUsuario.email);
+      if (usuarioExistente) {
         this.mostrarToast('Este correo ya está registrado.');
         return;
       }
 
-      // Guardar el usuario en localStorage
-      localStorage.setItem('usuario', JSON.stringify(nuevoUsuario));
+      usuarios.push(nuevoUsuario);
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-      // Navegar a Home y pasar el nombre para mostrar mensaje personalizado
       this.router.navigate(['/home'], { state: { nombreUsuario: nuevoUsuario.nombre } });
     } else {
       this.registroForm.markAllAsTouched();

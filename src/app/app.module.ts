@@ -6,6 +6,8 @@ import { IonicModule, IonicRouteStrategy, createAnimation } from '@ionic/angular
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
+import { HttpClientModule } from '@angular/common/http';
 
 // Animación personalizada para transición de páginas
 const customPageTransition = (baseEl: HTMLElement) => {
@@ -20,14 +22,8 @@ const customPageTransition = (baseEl: HTMLElement) => {
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
-    IonicModule.forRoot({
-      innerHTMLTemplatesEnabled: true,
-      navAnimation: customPageTransition
-    }),
-    AppRoutingModule
-  ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+    BrowserModule, HttpClientModule, IonicModule.forRoot({innerHTMLTemplatesEnabled: true, navAnimation: customPageTransition }),AppRoutingModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },SQLite],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

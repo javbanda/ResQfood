@@ -13,37 +13,36 @@
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-      <ion-item lines="none">
+      <ion-item lines="none" [class.invalid]="email?.invalid && (email?.touched || email?.dirty)">
         <ion-label position="stacked" class="campo-label">Correo electrónico</ion-label>
-        <ion-input type="email" fill="outline" formControlName="email" class="campo-input"></ion-input>
+        <ion-input type="email" fill="outline" formControlName="email" class="campo-input" required></ion-input>
       </ion-item>
-      <ion-text color="danger" *ngIf="email?.invalid && email?.touched">
-        <p *ngIf="email?.errors?.['required']">El correo es obligatorio.</p>
-        <p *ngIf="email?.errors?.['email']">Formato de correo no válido.</p>
-      </ion-text>
+      <div *ngIf="email?.invalid && (email?.touched || email?.dirty)" class="error-message">
+        <small *ngIf="email?.errors?.['required']">El correo es obligatorio.</small>
+        <small *ngIf="email?.errors?.['email']">Formato de correo inválido.</small>
+      </div>
 
-      <ion-item lines="none">
+      <ion-item lines="none" [class.invalid]="password?.invalid && (password?.touched || password?.dirty)">
         <ion-label position="stacked" class="campo-label">Contraseña</ion-label>
-        <ion-input type="password" fill="outline" formControlName="password" class="campo-input"></ion-input>
+        <ion-input type="password" fill="outline" formControlName="password" class="campo-input" required></ion-input>
       </ion-item>
-      <ion-text color="danger" *ngIf="password?.invalid && password?.touched">
-        <p *ngIf="password?.errors?.['required']">La contraseña es obligatoria.</p>
-        <p *ngIf="password?.errors?.['minlength']">Debe tener al menos 3 caracteres.</p>
-        <p *ngIf="password?.errors?.['maxlength']">Máximo 8 caracteres.</p>
-      </ion-text>
+      <div *ngIf="password?.invalid && (password?.touched || password?.dirty)" class="error-message">
+        <small *ngIf="password?.errors?.['required']">La contraseña es obligatoria.</small>
+        <small *ngIf="password?.errors?.['minlength']">Mínimo 3 caracteres.</small>
+        <small *ngIf="password?.errors?.['maxlength']">Máximo 8 caracteres.</small>
+      </div>
 
-      <ion-button expand="block" type="submit" class="btn-login" [disabled]="loginForm.invalid">
+      <ion-button expand="block" class="btn-login" type="submit" [disabled]="loginForm.invalid">
         Iniciar Sesión
       </ion-button>
 
     </form>
 
     <div class="registro-link">
-  <p>¿No tienes cuenta? 
-    <a routerLink="/registro">Regístrate aquí</a>
-  </p>
-</div>
-
+      <p>¿No tienes cuenta? 
+        <a routerLink="/registro">Regístrate aquí</a>
+      </p>
+    </div>
 
   </div>
 </ion-content>
